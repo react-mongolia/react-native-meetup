@@ -1,1 +1,1 @@
-# react-native-meetup
+# React Native Meetup
