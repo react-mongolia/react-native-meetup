@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import { ActivityIndicator, Button, Image, SafeAreaView, Text, TextInput, View} from 'react-native';
 
-const omdb = require('./omdb.json')
+const apikey = '8018e581'
 
 export default class App extends Component {
   state = {
@@ -25,7 +25,7 @@ export default class App extends Component {
           <TextInput placeholder='IMDB id' value={this.state.query} onChangeText={query => this.setState({ query })} style={{ flex: 1 }}/>
           <Button title="Fetch" onPress={() => {
             this.setState({ loading: true }, () => {
-              fetch(`http://www.omdbapi.com/?i=${this.state.query}&apikey=${omdb.apikey}`)
+              fetch(`http://www.omdbapi.com/?i=${this.state.query}&apikey=${apikey}`)
                 .then(res => res.json())
                 .then(movie => this.setState({ loading: false, movie }))
             })
